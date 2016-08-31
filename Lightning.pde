@@ -24,9 +24,9 @@ int StartY = 0;
 int EndX = 0;
 int EndY = 0;
 //clouds
-int c1 = 50;
-int c2 = 150;
-int c3 = 100;
+int c1 = 40;
+int c2 = 140;
+int c3 = 90;
 
 void setup()
 {
@@ -117,12 +117,14 @@ void mousePressed()
 	StartY = 0;
 	EndX = 0;
 	EndY = 0;
+	fill(255, 255, 255, 75);
+	rect(-5, -5, 605, 605);
 }
 
 void clouds()
 {
 	noStroke();
-	fill(64, 64, 64, 199);
+	fill(29, 29, 29);
 		//cloud 1
 		ellipse (c1, 75, 200, 100);
 		ellipse (c2, 80, 200, 100);
@@ -131,7 +133,7 @@ void clouds()
 		ellipse (c1+420, 75, 200, 100);
 		ellipse (c2+420, 80, 200, 100);
 		ellipse (c3+420, 25, 200, 100);
-	fill(96, 96, 96, 199);
+	fill(34, 34, 34);
 		//cloud 2
 		ellipse (c1+215, 75, 200, 100);
 		ellipse (c2+215, 80, 200, 100);
