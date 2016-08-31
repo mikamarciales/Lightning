@@ -13,16 +13,31 @@ int stX = 450;
 int stY = 0;
 int nX = 450;
 int nY = 0;
+//lightning 4
+int srtX = 600;
+int srtY = 0;
+int nddX = 600;
+int nddY = 0;
+//lightning 5
+int StartX = 0;
+int StartY = 0;
+int EndX = 0;
+int EndY = 0;
+//clouds
+int c1 = 50;
+int c2 = 150;
+int c3 = 100;
 
 void setup()
 {
 	size(600, 600);
-	//background(0);
-	strokeWeight(1);
+	background(0);
+	strokeWeight(5);
 }
 void draw()
 {
-	background(0, 0, 0, 50);
+	fill(0, 0, 0, 50);
+	rect(-5, -5, 605, 605);
 	stroke((int)(Math.random()*256), (int)(Math.random()*256), (int)(Math.random()*256));
 	//lightning 1
 	while (endY < 600)
@@ -51,8 +66,30 @@ void draw()
 		stX = nX;
 		stY = nY;
 	}
+	//lightning 4
+	while (nddY < 600)
+	{
+		nddY = srtY + (int)(Math.random()*10);
+		nddX = srtX + (int)(Math.random()*19)-9;
+		line(srtX, srtY, nddX, nddY);
+		srtX = nddX;
+		srtY = nddY;
+	}
+	//lightning 5
+	while (EndY < 600)
+	{
+		EndY = StartY + (int)(Math.random()*10);
+		EndX = StartX + (int)(Math.random()*19)-9;
+		line(StartX, StartY, EndX, EndY);
+		StartX = EndX;
+		StartY = EndY;
+	}
 
+	clouds();
+	fill(0, 0, 102, 15);
+	rect(-5, -5, 605, 605);
 }
+
 void mousePressed()
 {
 	//lightning 1
@@ -70,5 +107,34 @@ void mousePressed()
 	stY = 0;
 	nX = 450;
 	nY = 0;
+	//lightning 4
+	srtX = 600;
+	srtY = 0;
+	nddX = 600;
+	nddY = 0;
+	//lightning 5
+	StartX = 0;
+	StartY = 0;
+	EndX = 0;
+	EndY = 0;
 }
 
+void clouds()
+{
+	noStroke();
+	fill(64, 64, 64, 199);
+		//cloud 1
+		ellipse (c1, 75, 200, 100);
+		ellipse (c2, 80, 200, 100);
+		ellipse (c3, 25, 200, 100);
+		//cloud 3
+		ellipse (c1+420, 75, 200, 100);
+		ellipse (c2+420, 80, 200, 100);
+		ellipse (c3+420, 25, 200, 100);
+	fill(96, 96, 96, 199);
+		//cloud 2
+		ellipse (c1+215, 75, 200, 100);
+		ellipse (c2+215, 80, 200, 100);
+		ellipse (c3+215, 25, 200, 100);
+
+}
